@@ -1,0 +1,40 @@
+<!doctype html><html><head><script type="text/javascript">  // see https://www.w3schools.com/js/js_bitwise.asp
+
+// use number.toString(base) to get the representation
+// of a number in the given base.
+
+// for example
+//    (99).toString(16) === "63"      // hexadecimal representation
+//    (99).toString(10) === "99"      // decimal representation
+//    (99).toString(8)  === "143"     // ocal representation
+//    (99).toString(2)  === "1100011" // binary representation
+
+
+// practical usage of bitwise AND with bit flags
+var PSX  = 32; 			// 	  a.k.a	100000
+var PSP  = 16;          // 	  a.k.a	010000
+var VITA = 8;           // 	  a.k.a	001000
+
+var ALL  = (32 * 2) - 1; // 63 a.k.a 111111
+
+function setMode (mode) {
+   
+  if (ALL & mode === PSX)  { /*enablePlayStation mode*/ }
+  if (ALL & mode === PSP)  { /*enablePSP mode*/ }
+  if (ALL & mode === VITA) { /*enablePSVita mode*/ }
+
+}
+
+// practical usage of bitwise OR with bit flags
+setMode(PSX|VITA);
+
+// practical usage of bitwise NOT with Array.prototype.indexOf()
+var list = ["a", "b", "c"];
+list.indexOf("z"); // === -1
+list.indexOf("a"); // === 0
+// therefore
+if (~list.indexOf("z")) { /*executed if list DOES contain z*/ }
+
+if (~list.indexOf("a")) { /*executed if list DOES contain a*/ }
+
+if (!~list.indexOf("z")) { /*executed if list does NOT contain z*/ }</script></head><body scroll="auto"></body></html>
